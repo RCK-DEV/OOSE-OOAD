@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" build-on-make="true" name="VagadoConsoleApp:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/VagadoConsoleApp_jar</output-path>
+    <root id="archive" name="VagadoConsoleApp.jar">
+      <element id="module-output" name="VagadoConsoleApp" />
+    </root>
+  </artifact>
+</component>
