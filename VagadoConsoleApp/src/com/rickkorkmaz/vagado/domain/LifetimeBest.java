@@ -1,9 +1,10 @@
 package com.rickkorkmaz.vagado.domain;
 
 public class LifetimeBest{
-    private Vragenlijst vragenlijst;
     private float totaleTijd;
     private int verdiendePunten;
+
+    private Vragenlijst vragenlijst;
 
     public LifetimeBest(Vragenlijst vragenlijst, float totaleTijd, int verdiendePunten) {
         this.vragenlijst = vragenlijst;

@@ -1,20 +1,19 @@
 package com.rickkorkmaz.vagado.domain;
 
-import com.rickkorkmaz.vagado.repository.VragenlijstRepository;
+import com.rickkorkmaz.vagado.repository.SpelerAccountRepository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Speler {
+public class SpelerAccount extends Account {
     private int muntenSaldo;
-    private String gebruikersnaam;
     private List<LifetimeBest> lifetimeBests;
     private List<Aanschaffing> aanschaffingen;
-    VragenlijstRepository repository;
+    SpelerAccountRepository repository;
 
-    public Speler(int muntenSaldo, String gebruikersnaam, VragenlijstRepository repository) {
+    public SpelerAccount(int muntenSaldo, String gebruikersnaam, String wachtwoord, boolean ingelogd, SpelerAccountRepository repository) {
+        super(gebruikersnaam, wachtwoord, ingelogd);
         this.muntenSaldo = muntenSaldo;
-        this.gebruikersnaam = gebruikersnaam;
         this.lifetimeBests = new ArrayList<>();
         this.repository = repository;
         this.aanschaffingen = repository.getAanschaffingen(this);
@@ -52,6 +51,16 @@ public class Speler {
 
     public void voegMuntenToe(int munten) {
         muntenSaldo += munten;
+    }
+
+    public void updateSpeler() {
+        this.muntenSaldo = repository.getMuntenSaldo(this);
+        this.aanschaffingen = repository.getAanschaffingen(this);
+        this.lifetimeBests = repository.getLifetimeBest(this);
+    }
+
+    public void updateSpelerRepository() {
+        repository.updateSpeler(this);
     }
 
     public int getMuntenSaldo() {

@@ -5,9 +5,13 @@ import com.rickkorkmaz.vagado.domain.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MockedVragenlijstRepository implements VragenlijstRepository {
+/**
+ * Not all methods in Design Class Diagram are implemented
+ * since it isn't required to play a demo game.
+ */
+public class MockSpelerAccountRepository implements SpelerAccountRepository {
     @Override
-    public List<Aanschaffing> getAanschaffingen(Speler speler) {
+    public List<Aanschaffing> getAanschaffingen(SpelerAccount speler) {
 
         List<MeerkeuzeAntwoord> antwoordList1 = new ArrayList<>();
         antwoordList1.add(new MeerkeuzeAntwoord("La Pulga", true));
@@ -56,7 +60,7 @@ public class MockedVragenlijstRepository implements VragenlijstRepository {
     }
 
     @Override
-    public List<LifetimeBest> getLifetimeBest(Speler speler) {
+    public List<LifetimeBest> getLifetimeBest(SpelerAccount speler) {
 
         Vragenlijst vragenlijst1 = new Vragenlijst("Sport", "Voetbal", null, "NL");
 
@@ -66,5 +70,16 @@ public class MockedVragenlijstRepository implements VragenlijstRepository {
         lifetimeBests.add(lifetimeBest1);
 
         return lifetimeBests;
+    }
+
+    @Override
+    public int getMuntenSaldo(SpelerAccount speler) {
+        // TODO: Not implemented. Not required for demo.
+        return 0;
+    }
+
+    @Override
+    public void updateSpeler(SpelerAccount speler) {
+        // TODO: Not implemented. Not required for demo.
     }
 }

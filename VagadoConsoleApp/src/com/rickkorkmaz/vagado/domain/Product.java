@@ -12,4 +12,8 @@ public class Product {
     public Vragenlijst getVragenlijst() {
         return vragenlijst;
     }
+
+    public int getAankoopbedrag() {
+        return aankoopbedrag;
+    }
 }

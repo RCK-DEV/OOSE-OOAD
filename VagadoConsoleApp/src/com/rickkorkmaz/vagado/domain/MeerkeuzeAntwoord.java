@@ -9,8 +9,8 @@ public class MeerkeuzeAntwoord extends Antwoord {
     }
 
     @Override
-    public boolean controleerAntwoord(String answer) {
-        return antwoord.equalsIgnoreCase(answer) && isCorrect;
+    public boolean controleerAntwoord(String antwoord) {
+        return antwoord.equalsIgnoreCase(antwoord) && isCorrect;
     }
 
     public boolean isCorrect(){

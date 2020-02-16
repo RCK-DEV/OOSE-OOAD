@@ -15,7 +15,7 @@ public class MoeilijkPuntenTelling implements PuntenTelling {
             verdiendePunten += aantalPuntenVoorAlleVragenGoedBeantwoord;
         }
 
-        if (totaleTijd <= bonusTijdslimiet) {
+        if (aantalVragenGoedBeantwoord > 0 && totaleTijd <= bonusTijdslimiet) {
             verdiendePunten += bonusPuntenTijdslimiet;
         }
 

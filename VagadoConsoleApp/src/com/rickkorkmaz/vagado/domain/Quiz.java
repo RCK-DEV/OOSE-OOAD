@@ -15,18 +15,19 @@ public class Quiz {
 
     private int aantalVragen;
     private int aantalVragenBeantwoord;
-    private Vraag huidigeVraag;
     private int aantalVragenGoedBeantwoord;
     private long startTijd;
     private float totaleTijd;
     private int verdiendePunten;
     private int verdiendeMunten;
-    private Speler speler;
-    private Vragenlijst huidigeVragenlijst;
-    private PuntenTelling puntenTelling;
-    List<Vragenlijst> spelerVragenlijsten;
 
-    public Quiz(int aantalVragen, Speler speler, PuntenTelling puntenTelling) {
+    private Vraag huidigeVraag;
+    private Vragenlijst huidigeVragenlijst;
+    private List<Vragenlijst> spelerVragenlijsten;
+    private PuntenTelling puntenTelling;
+    private SpelerAccount speler;
+
+    public Quiz(int aantalVragen, SpelerAccount speler, PuntenTelling puntenTelling) {
         this.aantalVragen = aantalVragen;
         this.speler = speler;
         this.puntenTelling = puntenTelling;
@@ -89,6 +90,8 @@ public class Quiz {
         speler.voegMuntenToe(verdiendeMunten);
         speler.addLifetimeBest(huidigeVragenlijst, totaleTijd, verdiendePunten);
         LifetimeBest currentLifetimeBest = speler.getLifetimeBest(huidigeVragenlijst);
+
+        speler.updateSpeler();
 
         return String.format(
                 SCORE_OVERZICHT_FORMAT,

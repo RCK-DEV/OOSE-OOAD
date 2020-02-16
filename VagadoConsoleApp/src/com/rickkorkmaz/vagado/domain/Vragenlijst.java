@@ -5,8 +5,9 @@ import java.util.List;
 public class Vragenlijst {
     private String onderwerp;
     private String thema;
-    private List<Vraag> vragen;
     private String land;
+
+    private List<Vraag> vragen;
 
     public Vragenlijst(String onderwerp, String thema, List<Vraag> vragen, String land) {
         this.onderwerp = onderwerp;
